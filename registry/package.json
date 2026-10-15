@@ -1,0 +1,9 @@
+{
+  "name": "@quantovainc/bnb-pq-envelope",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "CC0-1.0",
+  "scripts": { "test": "vitest run", "vectors": "node --experimental-strip-types gen-vectors.ts" },
+  "dependencies": { "@noble/post-quantum": "0.7.1", "@noble/hashes": "2.0.1" },
+  "devDependencies": { "vitest": "3.2.4" }
+}

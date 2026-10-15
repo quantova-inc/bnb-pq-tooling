@@ -23,3 +23,7 @@ A record never reaches the chain. A salted SHA3-256 fingerprint is bound to the 
 ## License
 
 CC0 1.0 for the standard and the reference implementation.
+
+## Phase 0 registry and envelopes
+
+The `registry/` folder adds the Post Quantum Algorithm Registry and Versioned Envelopes BEP draft and its reference implementation. It gives every post quantum key, signature and commitment a self describing format so that verification dispatches on a declared identifier instead of on field width.
