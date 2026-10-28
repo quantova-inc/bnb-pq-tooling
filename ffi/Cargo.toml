@@ -1,0 +1,15 @@
+# Copyright 2026 Quantova Inc
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+
+[package]
+name = "qcardano-pqc-ffi"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+description = "A C ABI over the Quantova post quantum verifiers for the Cardano CIP-0206 builtins. It binds the from scratch qtv-crypto core and exposes ML-DSA-65, ML-DSA-87 and SLH-DSA-SHAKE-192s verification."
+
+[lib]
+crate-type = ["rlib", "staticlib", "cdylib"]
+
+[dependencies]
+qtv-crypto = { git = "https://github.com/Quantova/Q-Crypto" }

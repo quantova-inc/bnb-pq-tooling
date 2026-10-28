@@ -3,3 +3,4 @@ cache/
 lib/
 node_modules/
 adapter/node_modules/
+ffi/target/
