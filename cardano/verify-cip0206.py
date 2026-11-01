@@ -3,7 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0 OR MIT
 import json, sys, subprocess, tempfile, os, urllib.request
 
-RAW = "https://raw.githubusercontent.com/quantova-inc/CIPs/cip-post-quantum-signature-builtins/CIP-0206/test-vectors.json"
+SOURCES = [
+    "https://raw.githubusercontent.com/cardano-foundation/CIPs/master/CIP-0206/test-vectors.json",
+    "https://raw.githubusercontent.com/quantova-inc/CIPs/cip-post-quantum-signature-builtins/CIP-0206/test-vectors.json",
+]
 SCHEME = {1: "ML-DSA-44", 2: "ML-DSA-65", 3: "ML-DSA-87", 4: "SLH-DSA-SHA2-128s"}
 RAWPK = {1: 1312, 2: 1952, 3: 2592, 4: 32}
 RAWSIG = {1: 2420, 2: 3309, 3: 4627, 4: 7856}
@@ -13,7 +16,12 @@ def load():
         return json.load(open(sys.argv[1]))
     if os.path.exists("test-vectors.json"):
         return json.load(open("test-vectors.json"))
-    return json.load(urllib.request.urlopen(RAW))
+    for url in SOURCES:
+        try:
+            return json.load(urllib.request.urlopen(url))
+        except Exception:
+            continue
+    raise SystemExit("could not load test-vectors.json, pass a path as the first argument")
 
 def hdr(b):
     ver = b[0] if len(b) >= 1 else None
