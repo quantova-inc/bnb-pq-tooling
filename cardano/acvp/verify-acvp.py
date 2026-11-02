@@ -17,11 +17,12 @@
 # interface (message-encoding:0) so any context value can be verified.
 import subprocess, sys, tempfile, os, time
 
-RAW = {"ML-DSA-65":1952, "ML-DSA-87":2592, "SLH-DSA-SHAKE-192s":48}
+RAW = {"ML-DSA-44":1312, "ML-DSA-65":1952, "ML-DSA-87":2592, "SLH-DSA-SHA2-128s":32}
 FILES = [
+    ("cardano/acvp/ml-dsa-44-sigver.txt", "ML-DSA-44"),
     ("cardano/acvp/ml-dsa-65-sigver.txt", "ML-DSA-65"),
     ("cardano/acvp/ml-dsa-87-sigver.txt", "ML-DSA-87"),
-    ("cardano/acvp/slh-dsa-shake-192s-sigver.txt", "SLH-DSA-SHAKE-192s"),
+    ("cardano/acvp/slh-dsa-sha2-128s-sigver.txt", "SLH-DSA-SHA2-128s"),
 ]
 
 def prefix(alg, rl):

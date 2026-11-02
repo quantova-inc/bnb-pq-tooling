@@ -4,7 +4,7 @@ This folder lines the Quantova post quantum stack up against the official NIST A
 
 The vectors are the pure external interface sigVer known answers from the NIST ACVP-Server for FIPS 204 and FIPS 205, at https://github.com/usnistgov/ACVP-Server. Each line is expected pk message context signature, where expected is 1 for accept and 0 for reject and a dash is the empty string.
 
-`verify-acvp.py` runs every case through a stock OpenSSL 3.5 or newer that ships ML-DSA and SLH-DSA, with no Quantova code in the path. It builds the FIPS 204 and FIPS 205 external message and checks it, so any context value is handled. A clean run reports every case matched across ML-DSA-65, ML-DSA-87 and SLH-DSA-SHAKE-192s, which is 35 cases.
+`verify-acvp.py` runs every case through a stock OpenSSL 3.5 or newer that ships ML-DSA and SLH-DSA, with no Quantova code in the path. It builds the FIPS 204 and FIPS 205 external message and checks it, so any context value is handled. A clean run reports every case matched across the exact CIP parameter sets ML-DSA-44, ML-DSA-65, ML-DSA-87 and SLH-DSA-SHA2-128s, which is 50 cases.
 
 ```
 python3 cardano/acvp/verify-acvp.py
